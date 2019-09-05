@@ -1,0 +1,13 @@
+.btn {
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+.comment {
+  margin: 20px;
+}
+
+.text {
+  display: block;
+}

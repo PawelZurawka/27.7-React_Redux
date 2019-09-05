@@ -1,6 +1,5 @@
 import {
   ADD_COMMENT,
-  EDIT_COMMENT,
   REMOVE_COMMENT,
   THUMB_UP_COMMENT,
   THUMB_DOWN_COMMENT
@@ -21,18 +20,10 @@ export default function comments(state = [], action) {
     case REMOVE_COMMENT:
       return state.filter(comment => comment.id !== action.id);
 
-    case EDIT_COMMENT:
-      return state.map(comment => {
-        if (comment.id === action.id) {
-          comment.text = action.text;
-        }
-        return comment;
-      });
-
     case THUMB_UP_COMMENT:
       return state.map(comment => {
         if (comment.id === action.id) {
-          comment.votes++;
+          return { ...comment, votes: comment.votes + 1 };
         }
         return comment;
       });
@@ -40,7 +31,7 @@ export default function comments(state = [], action) {
     case THUMB_DOWN_COMMENT:
       return state.map(comment => {
         if (comment.id === action.id) {
-          comment.votes--;
+          return { ...comment, votes: comment.votes - 1 };
         }
         return comment;
       });

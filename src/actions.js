@@ -21,14 +21,6 @@ export function removeComment(id) {
   };
 }
 
-export function editComment(id, text) {
-  return {
-    type: EDIT_COMMENT,
-    id,
-    text
-  };
-}
-
 export function thumbUpComment(id) {
   return {
     type: THUMB_UP_COMMENT,
